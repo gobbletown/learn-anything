@@ -4,7 +4,7 @@ import { z } from "zod"
 
 const UpdateLink = z.object({
   id: z.number(),
-  name: z.string(),
+  title: z.string(),
 })
 
 export default resolver.pipe(
