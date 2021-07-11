@@ -7,9 +7,17 @@ const CreateLink = z.object({
   url: z.string(),
 })
 
-export default resolver.pipe(resolver.zod(CreateLink), resolver.authorize(), async (input) => {
-  // TODO: in multi-tenant app, you must add validation to ensure correct tenant
-  const link = await db.link.create({ data: input })
+export default resolver.pipe(resolver.zod(CreateLink), resolver.authorize(), async (input, ctx) => {
+  const userId = ctx.session.userId
+
+  const link = await db.link.create({
+    data: {
+      ...input,
+      user: {
+        connect: { id: userId },
+      },
+    },
+  })
 
   return link
 })
