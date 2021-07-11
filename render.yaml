@@ -19,5 +19,5 @@ services:
         generateValue: true
 
 databases:
-  - name: blitzapp-db
+  - name: learn-anything-db
     plan: starter
