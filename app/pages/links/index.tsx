@@ -23,7 +23,7 @@ export const LinksList = () => {
         {links.map((link) => (
           <li key={link.id}>
             <Link href={Routes.ShowLinkPage({ linkId: link.id })}>
-              <a>{link.name}</a>
+              <a>{link.title}</a>
             </Link>
           </li>
         ))}
