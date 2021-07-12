@@ -14,9 +14,6 @@ export const LinksList = () => {
     take: ITEMS_PER_PAGE,
   })
 
-  const goToPreviousPage = () => router.push({ query: { page: page - 1 } })
-  const goToNextPage = () => router.push({ query: { page: page + 1 } })
-
   return (
     <div>
       <ul>
@@ -28,13 +25,6 @@ export const LinksList = () => {
           </li>
         ))}
       </ul>
-
-      <button disabled={page === 0} onClick={goToPreviousPage}>
-        Previous
-      </button>
-      <button disabled={!hasMore} onClick={goToNextPage}>
-        Next
-      </button>
     </div>
   )
 }
