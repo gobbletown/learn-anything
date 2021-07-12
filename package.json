@@ -24,10 +24,14 @@
     ]
   },
   "dependencies": {
+    "@chakra-ui/react": "1.6.5",
+    "@emotion/react": "11.4.0",
     "@prisma/client": "2.26.0",
+    "@emotion/styled": "11.3.0",
     "autoprefixer": "10",
     "blitz": "0.38.2",
     "final-form": "4.20.2",
+    "framer-motion": "4.1.17",
     "postcss": "8",
     "react": "alpha",
     "react-dom": "alpha",

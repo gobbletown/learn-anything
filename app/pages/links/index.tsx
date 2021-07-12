@@ -2,13 +2,14 @@ import { Suspense } from "react"
 import { Head, Link, usePaginatedQuery, useRouter, BlitzPage, Routes } from "blitz"
 import Layout from "app/core/layouts/Layout"
 import getLinks from "app/links/queries/getLinks"
+import { Button, ButtonGroup } from "@chakra-ui/react"
 
 const ITEMS_PER_PAGE = 100
 
 export const LinksList = () => {
   const router = useRouter()
   const page = Number(router.query.page) || 0
-  const [{ links, hasMore }] = usePaginatedQuery(getLinks, {
+  const [{ links }] = usePaginatedQuery(getLinks, {
     orderBy: { id: "asc" },
     skip: ITEMS_PER_PAGE * page,
     take: ITEMS_PER_PAGE,
@@ -19,9 +20,9 @@ export const LinksList = () => {
       <ul>
         {links.map((link) => (
           <li key={link.id}>
-            <Link href={Routes.ShowLinkPage({ linkId: link.id })}>
-              <a>{link.title}</a>
-            </Link>
+            <a href={link.url}>{link.title}</a>
+            <span className="text-gray-500"> - {link.url} </span>
+            <Button>Delete</Button>
           </li>
         ))}
       </ul>
