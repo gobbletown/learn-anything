@@ -1,9 +1,8 @@
-import { Suspense } from "react"
-import { Link, BlitzPage, useMutation, Routes } from "blitz"
-import Layout from "app/core/layouts/Layout"
-import { useCurrentUser } from "app/core/hooks/useCurrentUser"
 import logout from "app/auth/mutations/logout"
-import { Card } from "app/components/card"
+import { useCurrentUser } from "app/core/hooks/useCurrentUser"
+import Layout from "app/core/layouts/Layout"
+import { BlitzPage, Link, Routes, useMutation } from "blitz"
+import { Suspense } from "react"
 
 const HomeContent = () => {
   const currentUser = useCurrentUser()
@@ -12,7 +11,9 @@ const HomeContent = () => {
   if (currentUser) {
     return (
       <>
-        <div className={"mb-4"}>Hi {currentUser.username}</div>
+        <div className={"mb-4"}>
+          Hi <Link href={`/${currentUser.username}`}>{currentUser.username}</Link>
+        </div>
         <div>
           <Link href={Routes.NewLinkPage()}>
             <button className="button small mr-4">Add Link</button>

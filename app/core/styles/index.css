@@ -17,3 +17,7 @@
 .description {
   @apply text-center;
 }
+
+a {
+  color: blue;
+}
