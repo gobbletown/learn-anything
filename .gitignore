@@ -53,5 +53,4 @@ lib-cov
 .vscode-test
 
 # Other
-render.yaml
 .env.production
